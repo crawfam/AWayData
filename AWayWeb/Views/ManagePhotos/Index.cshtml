@@ -1,0 +1,46 @@
+﻿@model FileInfo[]
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- override black background to keep white background -->
+ <div id="welcome" style="background-color:white;">
+        <div class="container clearfix">
+                <div class="wrapper">
+
+<h2>Files to Upload</h2>
+
+<p>
+    @Html.ActionLink("Manage Photos", "Index", "ManagePhotos", new {@class = "btn"})
+
+    @Html.ActionLink("Upload", "Upload", "ManagePhotos", new {@class = "btn"})
+   
+    @Html.ActionLink("Delete Files", "DeleteFiles", "ManagePhotos", new {@class = "btn"})
+</p>
+
+@{
+    
+    if (@Model != null )
+    {    
+        int i = 1;
+        foreach (var item in Model) {
+
+            <ul>
+                <li>@i  @item.Name - @item.LastWriteTime.ToShortDateString() : @item.LastWriteTime.ToShortTimeString()</li>
+            </ul>
+    
+            i++;
+    
+        }
+    }
+    else
+    {
+        <h2>No Files</h2>
+    }
+}
+
+</div>
+
+</div>
+
+</div>

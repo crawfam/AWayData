@@ -1,0 +1,54 @@
+﻿@model AWayData.Photo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Photo</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhotoText)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotoText)
+            @Html.ValidationMessageFor(model => model.PhotoText)
+        </div>
+
+        @Html.HiddenFor(model => model.PhotoId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Caption)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Caption)
+            @Html.ValidationMessageFor(model => model.Caption)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhotoDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotoDate)
+            @Html.ValidationMessageFor(model => model.PhotoDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

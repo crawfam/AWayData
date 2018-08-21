@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AWayData.Photo>
+@{
+    ViewBag.Title = "Week";
+}
+@section Styles 
+{
+}
+@section Scripts
+{
+}
+
+        <div id="LargeSlider">
+                    <div class="container-fluid clearfix LargeSlider">
+                <div class="container clearfix TitleSection">
+                            <header class="page-head">
+                        <h1>Gallery <small>// Lorem ipsum dolor</small></h1>
+                    </header>
+                        </div>
+                <div class="container clearfix">
+                            <div class="row-fluid">
+                        <div class="span12">
+                                    <div id="rg-gallery" class="rg-gallery">
+                                <div class="rg-thumbs"> 
+                                            <!-- Elastislide Carousel Thumbnail Viewer -->
+                                            <div class="es-carousel-wrapper">
+                                        <div class="es-nav"> <span class="es-nav-prev">Previous</span> <span class="es-nav-next">Next</span> </div>
+                                        <div class="es-carousel">
+                                                    <ul>
+                        @foreach (var pd in Model)
+                        {
+                            <li> 
+                                <a href="#"><img src="/api/photoimage/@pd.PhotoId" data-large="/api/photoimage/@pd.PhotoId" alt="@pd.Caption" data-description="@pd.Caption" /></a>
+                            </li>
+                        }
+                                            </ul>
+                                                </div>
+                                    </div>
+                                            <!-- End Elastislide Carousel Thumbnail Viewer --> 
+                                        </div>
+                                <!-- rg-thumbs --> 
+                            </div>
+                                </div>
+                    </div>
+                        </div>
+            </div>
+                </div>
+
+
+
+                <!-- NEEDED FOR CHROME -->
+@*                <div class="container-fluid">
+                    <div class="span12" style="margin-top:20px">
+                        <iframe height="0" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.eg/maps?f=q&amp;source=s_q&amp;hl=ar&amp;geocode=&amp;q=%D8%B1%D8%B4%D8%AF%D9%8A,+%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9&amp;aq=1&amp;oq=%D8%B1%D8%B4%D8%AF%D9%89+%D8%A7%D9%84%D8%A7%D8%B3%D9%83&amp;sll=26.9061,30.876198&amp;sspn=8.889374,21.643066&amp;ie=UTF8&amp;hq=&amp;hnear=%D8%B1%D8%B4%D8%AF%D9%8A&amp;t=m&amp;ll=31.239591,29.949589&amp;spn=0.036693,0.171661&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+                    </div>
+                </div>*@
+                <!-- END NEEDED FOR CHROME -->
+
+
+
+
+

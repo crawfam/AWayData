@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AWayData.Photo>
+@{
+    ViewBag.Title = "Day";
+}
+@section Styles 
+{
+    	<link href="~/Content/css/slicebox.css" rel="stylesheet"  />
+		<!--3D Slider-->
+}
+
+    <!-- override black background style to keep page white -->
+    <div id="welcome" style="background-color:white;">
+        <div class="container clearfix">
+                <div class="wrapper">
+
+                   <ul id="sb-slider" class="sb-slider">
+
+                        @foreach (var pd in Model)
+                        {
+                            <li> <a href="#" target="_blank"><img src="/api/photoimage/@pd.PhotoId" alt="@pd.Caption"/></a>
+                                    <div class="sb-description">
+                                        <h3>@pd.PhotoDate.ToLongDateString(), @pd.PhotoDate.ToShortTimeString()</h3>
+                                    </div>
+                            </li>
+                        }
+                       
+                    </ul>
+                        <div id="shadow" class="shadow"></div>
+                        <div id="nav-arrows" class="nav-arrows"> <a href="#">Next</a> <a href="#">Previous</a> </div>
+                </div>
+                <!-- /wrapper -->                 
+        </div>
+    </div>
+                <!-- NEEDED FOR CHROME -->
+                <div class="container-fluid">
+                    <div class="span12" style="margin-top:20px">
+                        <iframe height="0" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.eg/maps?f=q&amp;source=s_q&amp;hl=ar&amp;geocode=&amp;q=%D8%B1%D8%B4%D8%AF%D9%8A,+%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9&amp;aq=1&amp;oq=%D8%B1%D8%B4%D8%AF%D9%89+%D8%A7%D9%84%D8%A7%D8%B3%D9%83&amp;sll=26.9061,30.876198&amp;sspn=8.889374,21.643066&amp;ie=UTF8&amp;hq=&amp;hnear=%D8%B1%D8%B4%D8%AF%D9%8A&amp;t=m&amp;ll=31.239591,29.949589&amp;spn=0.036693,0.171661&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+                    </div>
+                </div>
+                <!-- END NEEDED FOR CHROME -->
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Content/js/jquery.slicebox.min.js"></script><!--3D Slider--> 
+    <script type="text/javascript" src="~/Content/js/3d_slider/call_slicebox.min.js"></script><!--3D Slider--> 
+}
+
+

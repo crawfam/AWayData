@@ -1,0 +1,144 @@
+﻿@model IEnumerable<AWayData.vwPhotoData>
+@{ var obj1 = (AWayWeb.Models.BookText)ViewData["book1"]; }
+@{ var obj2 = (AWayWeb.Models.BookText)ViewData["book2"]; }
+@{
+    ViewBag.Title = "Home";
+}
+<div id="welcome">
+    <div class="container-fluid clearfix" style="padding:0; overflow:auto">
+        <div id="ib-main-wrapper" class="ib-main-wrapper">
+
+                    <div class="ib-main">
+                        <a href="#"><img src="/api/photoimage/555" data-largesrc="~/Content/images/grid/large/1.jpg" alt="image01"/>
+                            <span>Photos by Anonymous</span></a>
+
+                                    <a href="#" class="ib-content">
+                                            <div class="ib-teaser">
+                                            <h2>The Way</h2>
+                                        </div>
+                                            <div class="ib-content-full">
+
+                                            <p>I am not a photographer. It doesn't matter who I am. I am anonymous, but I am not
+                                                hidden.
+                                            </p>
+                                            <p>        
+                                                In January of 2006 I decided to take 10 digital photos every day for life. Each photo is marked with its date and a time. I was there.
+                                                No days were missed.
+                                            </p>
+                                            <p>
+                                                Instead of keeping a log or journal. I decided to write a series of books:
+                                            </p>
+                                            <br />  
+                                            <div class="ib-main">                                              
+                                                <p>
+                                                    500 Things Everyone Should Know!<span> A self-help book.</span>
+                                                </p>
+                                                <p>
+                                                    Odysseus<span> The Homeric tale in an IT setting.</span>
+                                                </p>
+                                                <p>
+                                                    Gospel According to James<span> The Fifth Gospel.</span>
+                                                </p>
+                                                <p>
+                                                    The Anonymous Way: The Movie<span> The movie script.</span>
+                                                </p>
+                                                <p>
+                                                    The Sentence<span> A post modern novel.</span>
+                                                </p>
+                                                <p>
+                                                    The Anonymous Marathon Runner<span> An inspirational sports book.</span>
+                                                </p>
+                                                <p>
+                                                    Anonymous Way EXPOSED<span> Posting of an unauthorized hacker.</span>
+                                                </p>
+                                            </div>
+                                            </div>
+                                    </a>
+
+                        @{int count = 0;}
+                        @foreach (var pd in Model)
+                        {
+                            if(count != ViewBag.r1 && count != ViewBag.r2)
+                            {
+                                <a href='javascript:;' onclick="window.location = '@Url.HttpRouteUrl("Default", new { controller = "Home", action = "Day", date = @pd.PhotoDate.ToShortDateString() })';"><img src="/api/photoimage/@pd.PhotoId" alt="@pd.Caption"/>
+                                <span style="background-color: black;">@pd.PhotoDate.ToLongDateString(), @pd.PhotoDate.ToShortTimeString()</span></a>
+                            }
+                            else if (count == ViewBag.r1)
+                            {
+                                    <a href="#" class="ib-content">
+                                        <div class="ib-teaser">
+                                        <h2>@obj1.ShortName</h2>
+                                    </div>
+                                        <div class="ib-content-full">
+                                        <p>@obj1.Title</p>
+                                        <p>@obj1.Text</p>
+                                        <p>@obj1.Reference</p>                                         
+                                    </div>
+                                </a>
+                            }
+                            else if (count == ViewBag.r2)
+                            {
+                                    <a href="#" class="ib-content">
+                                        <div class="ib-teaser">
+                                        <h2>@obj2.ShortName</h2>
+                                    </div>
+                                        <div class="ib-content-full">
+                                        <p>@obj2.Title</p>
+                                        <p>@obj2.Text</p>
+                                        <p>@obj2.Reference</p>                                         
+                                    </div>
+                                </a>
+                            }
+
+                            count++;
+                        }
+
+
+
+                        
+                <div class="clr"></div>
+                        <br /><br /><br />
+            </div> <!-- END ib-main --> 
+        </div> <!-- END ib-main-wrapper -->         
+    </div> <!-- END container-fluid clearfix -->
+</div> <!-- END welcome  -->
+
+
+<div id="LargeSlider">
+    <div class="container-fluid clearfix LargeSlider">
+        <div class="container clearfix TitleSection">
+            <header class="page-head">
+                <h1>Time Slices<small>//</small></h1>
+            </header>
+        </div>
+         <div class="container clearfix">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="rg-gallery" class="rg-gallery">
+                        <div class="rg-thumbs"> 
+                            <!-- Elastislide Carousel Thumbnail Viewer -->
+                            <div class="es-carousel-wrapper">
+                                    <div class="es-nav">
+                                        <span class="es-nav-prev">Previous</span>
+                                        <span class="es-nav-next">Next</span>
+                                    </div>
+                                    <div class="es-carousel">
+                                        <ul>
+                                            @foreach (var pd in Model)
+                                            {
+                                                <li> 
+                                                    <a href="#"><img src="/api/photoimage/@pd.PhotoId" data-large="/api/photoimage/@pd.PhotoId" alt="@pd.Caption" data-description="@pd.Caption" /></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                            </div>
+                            <!-- End Elastislide Carousel Thumbnail Viewer --> 
+                        </div>
+                            <!-- rg-thumbs --> 
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>      
+</div>

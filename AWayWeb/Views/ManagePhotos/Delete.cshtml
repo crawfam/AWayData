@@ -1,0 +1,82 @@
+﻿@model AWayData.Photo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Photo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoNum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoNum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoDateTimeString)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoDateTimeString)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoDateTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoDateTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoDateShort)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoDateShort)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoTimeShort)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoTimeShort)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoText)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HTMLPhotoText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HTMLPhotoText)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Caption)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Caption)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotoDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotoDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AWayData.Photo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- override black background to keep white background -->
+ <div id="welcome" style="background-color:white;">
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Manage Photos", "Index", "ManagePhotos", new {@class = "btn"})
+
+    @Html.ActionLink("Upload", "Upload", "ManagePhotos", new {@class = "btn"})
+   
+    @Html.ActionLink("Delete Files", "DeleteFiles", "ManagePhotos", new {@class = "btn"})
+</p>
+<table>
+    <tr>
+        <th>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayNameFor(model => model.Caption)
+        </th>
+        <th>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayNameFor(model => model.PhotoDate)
+        </th>
+        <th>
+            Photo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(modelItem => item.Caption)
+        </td>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(modelItem => item.PhotoDate)
+        </td>
+        <td>
+            <img src="/api/photoimage/@item.PhotoId" alt="@item.Caption" height="100" width="100" />
+        </td>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Details", "Details", new { id=item.PhotoId }) |
+            @Html.ActionLink("Delete", "DeletePhoto", new { id=item.PhotoId })
+        </td>
+    </tr>
+}
+
+</table>
+
+</div>

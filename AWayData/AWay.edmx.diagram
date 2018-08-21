@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b35ef28164f54290be6adba0e0295753" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="AWayModel.Book" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWayModel.BookContent" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWayModel.EightLine" Width="1.5" PointX="4.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWayModel.Photo" Width="1.5" PointX="6.625" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="AWayModel.FK__BookConte__BookI__267ABA7A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AWayModel.vwPhotoData" Width="1.5" PointX="7.11453939374282" PointY="28.998355119022705" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

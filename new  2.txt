@@ -1,0 +1,13 @@
+
+
+            alert($(this).html());
+            //$(this).addClass("ui-popover");
+            //$(this).attr("data-toggle", "tooltip");
+            //$(this).attr("data-placement", "top");
+            //$(this).attr("data-trigger", "hover");
+            //$(this).attr("data-content", "Sed posuere consectetur est at lobortis. Aenean eu leo quam.");
+            //$(this).attr("title", "Tooltip on top");
+			
+			
+		$("table tr:eq('0')  td:nth-child(1):first").attr("data-content", "content for jane");
+        $("table tr:eq('1')  td:nth-child(1):first").attr("data-content", "content for eve");
