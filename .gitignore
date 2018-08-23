@@ -135,6 +135,9 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+# upload jpg directory
+upload/
+
 # Click-Once directory
 publish/
 
